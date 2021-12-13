@@ -1,7 +1,7 @@
 import GetUsers from "./components/GetUsers";
 import DisplayUsers from "./components/DisplayUsers";
 import { useState } from "react";
-import GlobalStyles from "./components/styles/Global";
+import { Bar } from "./components/styles/Bar.style";
 import { Input } from "./components/styles/Input.style";
 import {
   Container,
@@ -9,7 +9,6 @@ import {
   InputContainer,
   BarContainer,
 } from "./components/styles/Container.style";
-import { Bar } from "./components/styles/Bar.style";
 
 function App() {
   const [searchedUser, setSearchedUser] = useState("");
@@ -31,7 +30,7 @@ function App() {
           value={searchedUser}
           onChange={(event) => setSearchedUser(event.target.value)}
           type="text"
-          placeholder="Search user"
+          placeholder="Search user..."
         ></Input>
       </InputContainer>
 
@@ -49,7 +48,6 @@ function App() {
             ) {
               return user;
             }
-            return user;
           })
           .map((user) => {
             return (
@@ -59,7 +57,6 @@ function App() {
                 name={user.name}
                 count={user.count}
                 functionRemoveUser={removeUser}
-                arrayList={arrayOfUsers}
               />
             );
           })}
